@@ -18,7 +18,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create();
         $user_type = ['recruiter', 'jobseeker', 'admin'];
         $jobs = ['Software Engineer', 'Marketing Manager', 'Graphic Designer', 'Project Manager'];
-        for ($i = 0; $i <5; $i++) {
+        for ($i = 0; $i <3; $i++) {
             $user = new User();
             $user->setName($faker->firstName);
             $user->setLastname($faker->lastName);
@@ -44,5 +44,6 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
         $manager->flush();
+
     }
 }
