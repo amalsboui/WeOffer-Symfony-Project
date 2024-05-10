@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Changes</title>
+</head>
+<body>
+{{ form_start(Userform)}}
+{{form_row(Userform.city)}}
+{{form_row(Userform.job)}}
+{{form_row(Userform.personal_info)}}
+{{ form_label(Userform.image_url, 'Upload a profile picture:') }}
+<span class="custom-file-upload">
+    <i class="fas fa-image"></i>
+    {{ form_widget(Userform.image_url, { 'attr': {'type' : 'file' ,'id': 'image', 'name': 'image'} }) }}
+</span>
+<br>
+<input type="submit" value="Save Changes">
+</body>
+</html>
