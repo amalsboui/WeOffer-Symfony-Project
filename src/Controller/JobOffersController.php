@@ -23,14 +23,17 @@ class JobOffersController extends AbstractController
     }
        else{
            $repo = $doctrine->getRepository(User::class,);
-           $result = $repo->find($session->get('user_id'));
-           if(!($result->position =='recruiter ' || $result->position =='admin')){
+           $result = $repo->findOneBy(['id'=>$session->get('user_id')]);
+           dd($result);
+
+           if(!($result->getPosition() =='recruiter ' || $result->getPosition() =='admin')){
                $this->addFlash('error','access denied');
                 $this->redirectToRoute('home');
            }
            else{
         $repo = $doctrine->getRepository(Job::class,);
         $jobs = $repo->find($session->get('user_id'));
+
 
         }
     }

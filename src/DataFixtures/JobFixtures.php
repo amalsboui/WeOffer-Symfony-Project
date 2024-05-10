@@ -11,26 +11,27 @@ use Faker\Factory;
 
 class JobFixtures extends Fixture
 {
-    public function load(ObjectManager $manager ,): void
+    public function load(ObjectManager $manager ): void
     {
+
       $job= new Job();
       $faker = Factory::create();
         //$jobs = ['Software Engineer', 'Marketing Manager', 'Graphic Designer', 'Project Manager'];
 
         for($i=1; $i<21; $i++){
-            $job->setRecruiter($i % 5);
-            $job->setPosition($faker->jobTitle());
-            $job->setDescription($faker->text($maxNbChars = 200));
+            $job->setRecruiter(new User($i % 5));
+            $job->setPosition($faker->word());
+            $job->setDescription("lorem ipsum ");
             $job->setEntreprise($faker->company());
-            $job->setCreatedAt($faker->dateTimeBetween($startDate = '-5 months', $endDate = 'now'));
+            $job->setCreatedAt(date_create($faker->date()));
             $job->setLocation($faker->city());
             $job->setEmploymentType($faker->word());
             $job->setCategory($faker->word());
 
-
+            $manager->persist($job);
         }
 
-         $manager->persist($job);
+
 
         $manager->flush();
     }
