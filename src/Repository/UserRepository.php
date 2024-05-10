@@ -66,7 +66,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getOneOrNullResult();
     }
-    public function countUsersByType():array
+   /* public function countUsersByType():array
     {
         $qb = $this->createQueryBuilder('u');
         $qb->select('COUNT(u.id) as totalUsers');
@@ -87,6 +87,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $qb = $this->createQueryBuilder('u');
         $qb->select('COUNT(u.id) as totalJobOffers');
         return $qb->getQuery()->getScalarResult();
-    }
+    }*/
 
 }
