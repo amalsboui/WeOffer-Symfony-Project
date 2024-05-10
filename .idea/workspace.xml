@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b96550-0e73-4c5a-9ca6-7fd00fc14998" name="Changes" comment="register">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_05_2024_1_11_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_05_2024_1_11_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
-    </list>
+    <list default="true" id="e2b96550-0e73-4c5a-9ca6-7fd00fc14998" name="Changes" comment="register" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,12 +25,13 @@
     &quot;assignee&quot;: &quot;amalsboui&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/amalsboui/Symfony-Project.git",
-    "accountId": "3dc662d8-8196-412b-a0e1-e9a7eeca94be"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/amalsboui/Symfony-Project.git&quot;,
+    &quot;accountId&quot;: &quot;3dc662d8-8196-412b-a0e1-e9a7eeca94be&quot;
   }
-}]]></component>
+}</component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
@@ -191,7 +185,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/hp/PhpstormProjects/Symfony-Project",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "H:/RT2/sem2/web/symfony/Symfony-Project/Symfony-Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -225,6 +220,7 @@
       <workItem from="1715165251741" duration="4865000" />
       <workItem from="1715279828907" duration="19367000" />
       <workItem from="1715301952615" duration="1907000" />
+      <workItem from="1715305500722" duration="6143000" />
     </task>
     <task id="LOCAL-00001" summary="register">
       <option name="closed" value="true" />
@@ -253,6 +249,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="register" />
-    <option name="LAST_COMMIT_MESSAGE" value="register" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
