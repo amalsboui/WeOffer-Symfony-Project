@@ -1,0 +1,15 @@
+{
+  "name": "symfony-project",
+  "version": "1.0.0",
+  "description": "WeOffer is a website designed to connect job seekers with job offers and provide a platform for recruiters to post job offers. \r It features a public homepage,private homepage and an admin dashboard.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

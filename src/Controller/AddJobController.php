@@ -20,11 +20,12 @@ class AddJobController extends AbstractController
     public function index(Request $request,EntityManagerInterface $entityManager,SessionInterface $session,UserRepository $userRepository,Security $security): Response
     { 
         $userId = $session->get('user_id');
-        //$user = $userRepository->findOneByIdFromSession($userId);
-         /** @var \App\Entity\User $user */
-        $user=$this->getUser();
-        //if(!$user) {
-          //  return (new Response('<h1>user not found</h1>'));}
+        //$userId=2;
+        $user = $userRepository->find($userId);
+        // /** @var \App\Entity\User $user */
+        //$user=$this->getUser();
+        if(!$user) {
+           return (new Response('<h1>user not found</h1>'));}
          $time=new \DateTimeImmutable();
         $job=new Job();
         $form=$this->createForm(AddajobType::class,$job);
@@ -33,7 +34,6 @@ class AddJobController extends AbstractController
         
         //$user=$session->get('user');
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setCreatedAt($time);
             $job->setRecruiter($user);
             $job->setCreatedAt($time);
             $job->setCategory($form->get('category')->getData());
