@@ -1,0 +1,179 @@
+Index: src/DataFixtures/AppFixtures.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\DataFixtures;\r\n\r\nuse Doctrine\\Bundle\\FixturesBundle\\Fixture;\r\nuse Doctrine\\Persistence\\ObjectManager;\r\n\r\nuse App\\Entity\\User;\r\n\r\nuse DateTimeImmutable;\r\n\r\nuse Faker\\Factory;\r\n\r\nclass AppFixtures extends Fixture\r\n{\r\n    public function load(ObjectManager $manager): void\r\n    {\r\n        $faker = Factory::create();\r\n        $user_type = ['recruiter', 'jobseeker', 'admin'];\r\n        $jobs = ['Software Engineer', 'Marketing Manager', 'Graphic Designer', 'Project Manager'];\r\n        for ($i = 0; $i <5; $i++) {\r\n            $user = new User();\r\n            $user->setName($faker->firstName);\r\n            $user->setLastname($faker->lastName);\r\n            $user->setEmail($faker->email);\r\n            $user->setPassword($faker->password);\r\n            $user->setUserType($faker->randomElement($user_type));\r\n            $user->setJob($faker->randomElement($jobs));\r\n            $user->setCity($faker->city);\r\n            $user->setImageUrl($faker->imageUrl($width = 640, $height = 480));\r\n\r\n            $dateTimeImmutable = new DateTimeImmutable();\r\n            $dateTimeImmutable = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', '2022-05-12 15:30:00');\r\n            $user->setCreatedAt($dateTimeImmutable);\r\n\r\n            if($user->getUserType() == 'recruiter'){\r\n                $user->setPersonalInfo($faker->company);\r\n            }\r\n\r\n            else if($user->getUserType() == 'jobseeker'){\r\n                $user->setPersonalInfo($faker->text([50]));\r\n            }\r\n\r\n            $manager->persist($user);\r\n        }\r\n        $manager->flush();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DataFixtures/AppFixtures.php b/src/DataFixtures/AppFixtures.php
+--- a/src/DataFixtures/AppFixtures.php	(revision 1823b285af7079dd8ea520645a8d32908efb3ea2)
++++ b/src/DataFixtures/AppFixtures.php	(date 1715291314044)
+@@ -10,15 +10,17 @@
+ use DateTimeImmutable;
+ 
+ use Faker\Factory;
++use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+ 
+ class AppFixtures extends Fixture
+ {
++
+     public function load(ObjectManager $manager): void
+     {
+         $faker = Factory::create();
+-        $user_type = ['recruiter', 'jobseeker', 'admin'];
++        $user_type = ['jobseeker','recruiter','admin'];
+         $jobs = ['Software Engineer', 'Marketing Manager', 'Graphic Designer', 'Project Manager'];
+-        for ($i = 0; $i <5; $i++) {
++        for ($i = 0; $i <3; $i++) {
+             $user = new User();
+             $user->setName($faker->firstName);
+             $user->setLastname($faker->lastName);
+@@ -37,7 +39,7 @@
+                 $user->setPersonalInfo($faker->company);
+             }
+ 
+-            else if($user->getUserType() == 'jobseeker'){
++            else if($user->getUserType() == 'jobseeker') {
+                 $user->setPersonalInfo($faker->text([50]));
+             }
+ 
+Index: src/Controller/LoginController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/LoginController.php b/src/Controller/LoginController.php
+deleted file mode 100644
+--- a/src/Controller/LoginController.php	(revision 1823b285af7079dd8ea520645a8d32908efb3ea2)
++++ /dev/null	(revision 1823b285af7079dd8ea520645a8d32908efb3ea2)
+@@ -1,18 +0,0 @@
+-<?php
+-
+-namespace App\Controller;
+-
+-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+-use Symfony\Component\HttpFoundation\Response;
+-use Symfony\Component\Routing\Attribute\Route;
+-
+-class LoginController extends AbstractController
+-{
+-    #[Route('/login', name: 'app_login')]
+-    public function index(): Response
+-    {
+-        return $this->render('login/index.html.twig', [
+-            'controller_name' => 'LoginController',
+-        ]);
+-    }
+-}
+Index: templates/registration/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html.twig' %}\r\n\r\n{% block title %}Hello RegistrationController!{% endblock %}\r\n\r\n{% block body %}\r\n<style>\r\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\r\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\r\n</style>\r\n\r\n<div class=\"example-wrapper\">\r\n    <h1>Hello {{ controller_name }}! ✅</h1>\r\n\r\n    This friendly message is coming from:\r\n    <ul>\r\n        <li>Your controller at <code>C:/yasmine to main process/Symfony-Project/src/Controller/RegistrationController.php</code></li>\r\n        <li>Your template at <code>C:/yasmine to main process/Symfony-Project/templates/registration/index.html.twig</code></li>\r\n    </ul>\r\n</div>\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/registration/index.html.twig b/templates/registration/index.html.twig
+--- a/templates/registration/index.html.twig	(revision 1823b285af7079dd8ea520645a8d32908efb3ea2)
++++ b/templates/registration/index.html.twig	(date 1715169409025)
+@@ -1,20 +1,70 @@
+-{% extends 'base.html.twig' %}
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Inscription</title>
++    <link rel="stylesheet" href="{{ path('assets/css/registration.css') }}">
++</head>
++<body>
++<div class="container">
++    <img src="{{ path() }}picc.png" alt="Registration Image" class="registration-image">
++    <div class="formulaire">
++        <h1>Registration</h1>
++
++        <form >
+ 
+-{% block title %}Hello RegistrationController!{% endblock %}
++            <div class="parent_div">
++                <label for="name " >Name :</label>
++                <input type="text" id="name" name="name" required>
++                <div class="error"></div>
++                <div class="success"></div>
++            </div>
+ 
+-{% block body %}
+-<style>
+-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+-</style>
++            <div class="parent_div">
++                <label for="last_name">Last Name:</label>
++                <input type="text" id="last_name" name="last_name" required>
++                <div class="error"></div>
++                <div class="success"></div>
++            </div>
+ 
+-<div class="example-wrapper">
+-    <h1>Hello {{ controller_name }}! ✅</h1>
++            <label for="user_type">Choose your role:</label>
++            <select id="user_type" name="user_type" required>
++                <option value="">Select</option>
++                <option value="job_seeker">Job seeker</option>
++                <option value="recruiter">Recruiter</option>
++            </select>
++            <div class="parent_div">
++                <label for="email">Email :</label>
++                <input type="email" id="email" name="email" required>
++                <div class="error"></div>
++                <div class="success"></div>
++            </div>
+ 
+-    This friendly message is coming from:
+-    <ul>
+-        <li>Your controller at <code>C:/yasmine to main process/Symfony-Project/src/Controller/RegistrationController.php</code></li>
+-        <li>Your template at <code>C:/yasmine to main process/Symfony-Project/templates/registration/index.html.twig</code></li>
+-    </ul>
++            <div class="parent_div">
++                <label for="password">Password :</label>
++                <input type="password" id="password" name="password" required>
++                <div class="error"></div>
++                <div class="success"></div>
++            </div>
++
++            <div class="parent_div">
++                <label for="confirm">Password confirmation :</label>
++                <input type="password" id="confirm" name="confirm" required>
++                <div class="error"></div>
++                <div class="success"></div>
++            </div>
++
++            <button type="submit" name="register" id="register">Sign up</button>
++        </form>
++        <p>Already have an account? <a href="../Login/index.php">Log in</a></p>
++        <?php
++        check_signup_errors();
++    ?>
++    </div>
+ </div>
+-{% endblock %}
++<script src="verify_inputs.js"></script>
++</body>
++</html>
++
++
+Index: templates/login/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html.twig' %}\r\n\r\n{% block title %}Hello LoginController!{% endblock %}\r\n\r\n{% block body %}\r\n<style>\r\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\r\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\r\n</style>\r\n\r\n<div class=\"example-wrapper\">\r\n    <h1>Hello {{ controller_name }}! ✅</h1>\r\n\r\n    This friendly message is coming from:\r\n    <ul>\r\n        <li>Your controller at <code>C:/yasmine to main process/Symfony-Project/src/Controller/LoginController.php</code></li>\r\n        <li>Your template at <code>C:/yasmine to main process/Symfony-Project/templates/login/index.html.twig</code></li>\r\n    </ul>\r\n</div>\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/login/index.html.twig b/templates/login/index.html.twig
+--- a/templates/login/index.html.twig	(revision 1823b285af7079dd8ea520645a8d32908efb3ea2)
++++ b/templates/login/index.html.twig	(date 1715168058418)
+@@ -1,4 +1,4 @@
+-{% extends 'base.html.twig' %}
++
+ 
+ {% block title %}Hello LoginController!{% endblock %}
+ 

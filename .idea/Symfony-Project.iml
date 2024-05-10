@@ -2,8 +2,11 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="App\" />
+<<<<<<< HEAD
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+=======
+>>>>>>> a355778db5405e38531890832f270fd216cb4022
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
@@ -87,6 +90,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/flex" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/form" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/framework-bundle" />
+<<<<<<< HEAD
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/google-mailer" />
+=======
+>>>>>>> a355778db5405e38531890832f270fd216cb4022
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
@@ -117,6 +124,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-core" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-csrf" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-http" />
+<<<<<<< HEAD
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/sendgrid-mailer" />
+=======
+>>>>>>> a355778db5405e38531890832f270fd216cb4022
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/stimulus-bundle" />
