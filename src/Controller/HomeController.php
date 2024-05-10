@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         $repo = $entityManager->getRepository(Job::class);
-        dd($repo);
+        //dd($repo);
         $jobs = $repo->findAll();
 
         $jobTimes = [];
@@ -29,26 +29,27 @@ class HomeController extends AbstractController
             ]);
     }
 
-    private function calculateTime($created): string
+    private function calculateTime(\DateTimeImmutable $created): string
     {
-        $timeDifference = time() - strtotime($created);
+        $currentTime = new \DateTimeImmutable();
+        $timeDifference = $currentTime->getTimestamp() - $created->getTimestamp();
 
         $hoursAgo = floor($timeDifference / (60 * 60));
         $daysAgo = floor($timeDifference / (24 * 60 * 60));
         $monthsAgo = floor($daysAgo / 30);
 
         if ($monthsAgo == 1) {
-        return "1 month ago";
+            return "1 month ago";
         } elseif ($monthsAgo > 1) {
-        return "$monthsAgo months ago";
+            return "$monthsAgo months ago";
         } elseif ($daysAgo == 1) {
-        return "1 day ago";
+            return "1 day ago";
         } elseif ($daysAgo > 1) {
-        return "$daysAgo days ago";
+            return "$daysAgo days ago";
         } elseif ($hoursAgo == 1) {
-        return "1 hour ago";
+            return "1 hour ago";
         } else {
-        return "$hoursAgo hours ago";
+            return "$hoursAgo hours ago";
         }
     }
 

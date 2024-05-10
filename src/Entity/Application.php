@@ -18,11 +18,11 @@ class Application
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?job $job = null;
+    private ?Job $job = null;
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $jobseeker = null;
+    private ?User $jobseeker = null;
 
     public function getId(): ?int
     {
