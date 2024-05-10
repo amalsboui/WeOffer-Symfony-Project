@@ -29,7 +29,7 @@ class JobOffersController extends AbstractController
            $result = $repo->findOneBy(['id'=>$id]);
 
            if(!($result->getUserType() =='recruiter' || $result->getUserType() =='admin')){
-                dd('hi');
+
                $this->addFlash('error','access denied');
                return $this->redirectToRoute('home');
            }
