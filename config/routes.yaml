@@ -3,7 +3,3 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
-contact_submit:
-    path: /contact/submit
-    controller: App\Controller\ContactController::submit
-    methods: [POST]
