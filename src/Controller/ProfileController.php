@@ -25,10 +25,9 @@ class ProfileController extends AbstractController
     {   $user=$this->getUser();
         $Userform=$this->createForm(UpdateFormType::class,$this->getUser());
         if ($Userform->isSubmitted() && $Userform->isValid()){
-            $user->setPersonal_info($Userform->get('personal_info')->getData());
+            $user->setPersonalnfo($Userform->get('personal_info')->getData());
             $user->setJob($Userform->get('job')->getData());
             $user->setCity($Userform->get('city')->getData());
-            $user->setImageUrl($Userform->get('img_url')->getData());
             $entityManager->persist($user);
             $entityManager->flush();
         }

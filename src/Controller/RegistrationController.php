@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
-{
+{   public User $user;
     #[Route('/register', name: 'registration')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager,SessionInterface $session): Response
     {
@@ -40,8 +40,8 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             if ($session->has('user_id')) {
                 $session->set('user_id', $user->getId());
+            
             }
-
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('home');
@@ -50,5 +50,7 @@ class RegistrationController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form,
         ]);
+        
+        
     }
 }
