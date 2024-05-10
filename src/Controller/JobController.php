@@ -16,18 +16,17 @@ class JobController extends AbstractController
      */
     public function show(Request $request, EntityManagerInterface $entityManager, int $id): Response
     {
-        // Retrieve the job entity by ID
+        
         $job = $entityManager->getRepository(Job::class)->find($id);
 
-        // Check if job exists
         if (!$job) {
             throw $this->createNotFoundException('Job not found');
         }
 
-        // Calculate time difference
+  
         $timeDifference = $this->calculateTime($job->getCreatedAt());
 
-        // Render the view
+ 
         return $this->render('job/show.html.twig', [
             'job' => $job,
             'timeDifference' => $timeDifference,
