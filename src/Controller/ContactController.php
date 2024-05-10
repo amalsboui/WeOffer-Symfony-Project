@@ -24,7 +24,7 @@ class ContactController extends AbstractController
             try {
                 $email = (new Email())
                     ->from($email)
-                    ->to('oussamawaid@gmail.com') // Replace with your recipient email address
+                    ->to('oussamawaid@gmail.com') 
                     ->subject($subject)
                     ->text("From: $name\n\n$email\n\n$message");
 
@@ -34,7 +34,7 @@ class ContactController extends AbstractController
                 return $this->redirectToRoute('contact');
             } catch (TransportExceptionInterface $e) {
                 $this->addFlash('error', 'Failed to send the message. Please try again later.');
-                // Log the exception or handle it as needed
+            
             }
         }
 
