@@ -33,15 +33,6 @@ class AddJobController extends AbstractController
         
         //$user=$session->get('user');
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = new User();
-            $user->setName('Ali');
-            $user->setLastname('Majdoub');
-            $user->setEmail('xx@xxxx.xxxx');
-            $user->setPassword('xxxx');
-            $user->setUserType('Job_recruiter');
-            $user->setJob('xxxxxx');
-            $user->setCity('dddd');
-            $user->setImageUrl('xxxxxxxxxxxxxxxxx');
             $user->setCreatedAt($time);
             $job->setRecruiter($user);
             $job->setCreatedAt($time);
