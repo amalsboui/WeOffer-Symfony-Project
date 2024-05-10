@@ -26,22 +26,26 @@ Profile
                     
                     <label for="avatar">
                         {% if user %}
-                        {% if user.image_url %}
-                            <img src="{{asset('includes/uploads/{{ user.image_url }}')}}" style="width: 200px; height: 200px; border-radius: 50%;" class="avatar-image" alt="profilepicture">
+                        {% if user.image_url is defined %}
+                            <img src="{{asset('public/uploads/users/{{ user.image_url }}')}}" style="width: 200px; height: 200px; border-radius: 50%;" class="avatar-image" alt="profilepicture">
                         {% endif %}
                         {% else %}
                         <i class="fas fa-user-tie fa-7x mt-5"></i>
                         {% endif %}
                     </label><br>
                     {% if user %}
+                        {% if user.name is defined and user.last_name is defined %}
                         {{ user.name }} {{ user.last_name }}
+                        {% endif %}
                     {% endif %}
                     <br>
                     {% if user %}
+                    {%if user.job is defined %}
                         {{ user.job }}
+                       {% endif %} 
                     {% endif %}
-                    <form action = "{{path ('profileupdate')}}" method="post">
-                        <a  href="{{ path('profileupdate') }}" class="btn btn-primary">
+                    <form action = "{{path ('profileupdate',{'id':1})}}" method="post">
+                        <a  href="{{ path('profileupdate',{'id':1}) }}" class="btn btn-primary">
                             Edit Profile
                         </a>
                     </form>
@@ -55,21 +59,24 @@ Profile
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Email :</p>
                         {% if user %}
+                        {%if user.email is defined %}
                         {% if user.email %}
                         {{ user.email }}
+                        {% endif %}
                         {% endif %}
                         {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <p class="font-weight-bold">City :</p>
                         {% if user %}
-                            {% if user.city %}
+                            {% if user.city is defined %}
                                 {{ user.city }}
                             {% endif %}
                         {% endif %}
                     </div>
                 </div>
                 {% if user %}
+                {%if user.user_type is defined %}
                     {% if user.user_type == "job_seeker" %}
                         <h4 class="mt-3">Projects done before:</h4>
                         <hr class="bg-primary mt-0 w-25">
@@ -78,6 +85,7 @@ Profile
                         <h4 class="mt-3">Entreprise :</h4>
                         <hr class="bg-primary mt-0 w-25">
                         {{ user.info_personnelles }}
+                    {% endif %}
                     {% endif %}
                 {% endif %}
 
