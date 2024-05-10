@@ -49,15 +49,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //        ;
 //    }
 
-   // public function findOneBySomeField($userId): ?User
+    // public function findOneBySomeField($userId): ?User
     //{
-      //  return $this->createQueryBuilder('u')
-        //    ->andWhere('u.id = :userId')
-          //  ->setParameter('userId', $userId)
-         //   ->getQuery()
-         //   ->getOneOrNullResult()
-       // ;
-   // }
+    //  return $this->createQueryBuilder('u')
+    //    ->andWhere('u.id = :userId')
+    //  ->setParameter('userId', $userId)
+    //   ->getQuery()
+    //   ->getOneOrNullResult()
+    // ;
+    // }
     public function findOneByIdFromSession($userId): ?User
     {
         return $this->createQueryBuilder('u')
@@ -66,7 +66,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getOneOrNullResult();
     }
-   /* public function countUsersByType():array
+    public function countUsersByType():array
     {
         $qb = $this->createQueryBuilder('u');
         $qb->select('COUNT(u.id) as totalUsers');
@@ -87,6 +87,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $qb = $this->createQueryBuilder('u');
         $qb->select('COUNT(u.id) as totalJobOffers');
         return $qb->getQuery()->getScalarResult();
-    }*/
+    }
 
 }
