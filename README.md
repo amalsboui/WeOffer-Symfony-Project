@@ -44,4 +44,4 @@ WeOffer uses a relational database with the following tables:
 - CSS
 - JavaScript
 - Symfony
--Twig
+- Twig
