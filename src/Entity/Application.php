@@ -24,6 +24,9 @@ class Application
     #[ORM\JoinColumn(nullable: false)]
     private ?User $jobseeker = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cv_path = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Application
     public function setJobseeker(?user $jobseeker): static
     {
         $this->jobseeker = $jobseeker;
+
+        return $this;
+    }
+
+    public function getCvPath(): ?string
+    {
+        return $this->cv_path;
+    }
+
+    public function setCvPath(?string $cv_path): static
+    {
+        $this->cv_path = $cv_path;
 
         return $this;
     }
