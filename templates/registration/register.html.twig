@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/registration.css') }}">
+</head>
+<body>
+<div class="container">
+    <img src="{{ asset('assets/images/picc.png')}}" alt="Registration Image" class="registration-image">
+
+    <div class="formulaire">
+        <h1>Registration</h1>
+        <form action="{{ path('registration') }}" method="POST">
+
+            <div class="parent_div">
+
+                {{ form_row(registrationForm.name) }}
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+
+            <div class="parent_div">
+
+                {{ form_row(registrationForm.last_name) }}
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+
+            <label for="user_type"></label>
+                {{ form_row(registrationForm.user_type) }}
+            <div class="parent_div">
+                {{ form_row(registrationForm.email) }}
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+
+            <div class="parent_div">
+                {{ form_row(registrationForm.Password) }}
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+            <button type="submit" name="register" id="register">Sign up</button>
+            {{ form_rest(registrationForm) }}
+
+        </form>
+
+        <p>Already have an account?<a href="{{ path('login') }}"> Log in</a></p>
+
+    </div>
+</div>
+</body>
+</html>
