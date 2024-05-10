@@ -30,12 +30,12 @@ class JobOffersController extends AbstractController
            }
            else{
         $repo = $doctrine->getRepository(Job::class,);
-        $result = $repo->find($session->get('user_id'));
+        $jobs = $repo->find($session->get('user_id'));
 
         }
     }
         return $this->render('job_offers/index.html.twig', [
-            'controller_name' => 'JobOffersController',
+            'jobs' => $jobs,
         ]);
 
     }
