@@ -18,22 +18,25 @@ class JobOffersController extends AbstractController
     public function index(ManagerRegistry $doctrine ,SessionInterface $session): Response
     {
     if(!$session->has('user_id')){
+
         $this->addFlash('info','please login first');
-        $this->redirecttoRoute('login');
+       return  $this->redirecttoRoute('login');
     }
        else{
+           $id=$session->get('user_id');
+            $id=2;
            $repo = $doctrine->getRepository(User::class,);
-           $result = $repo->findOneBy(['id'=>$session->get('user_id')]);
-           dd($result);
+           $result = $repo->findOneBy(['id'=>$id]);
 
-           if(!($result->getPosition() =='recruiter ' || $result->getPosition() =='admin')){
+           if(!($result->getUserType() =='recruiter' || $result->getUserType() =='admin')){
+                dd('hi');
                $this->addFlash('error','access denied');
-                $this->redirectToRoute('home');
+               return $this->redirectToRoute('home');
            }
            else{
-        $repo = $doctrine->getRepository(Job::class,);
-        $jobs = $repo->find($session->get('user_id'));
 
+        $repo = $doctrine->getRepository(Job::class,);
+        $jobs = $repo->findBy(['recruiter'=>$id] );
 
         }
     }
@@ -42,4 +45,6 @@ class JobOffersController extends AbstractController
         ]);
 
     }
+
 }
+
