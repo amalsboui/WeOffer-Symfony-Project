@@ -29,14 +29,14 @@
                 <div class="success"></div>
             </div>
             <input type="hidden" name="_target_path" value="/home">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <button type="submit" name="logIn" id="logIn">Log in</button>
         </form>
         <p>Don't have an account? <a href="{{ path('registration') }}">Sign up</a></p>
-        <?php
-    check_login_errors();
-    ?>
+
     </div>
     <img src="{{ asset('assets/images/pict.png') }}" alt="Registration Image" class="registration-image">
 </div>
 </body>
 </html>
+
