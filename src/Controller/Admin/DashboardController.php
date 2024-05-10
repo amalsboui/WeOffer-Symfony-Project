@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Application;
 use App\Entity\Job;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -14,23 +15,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
 
+    private UserRepository $userRepository;
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        //return parent::index();
-        /*$userRepository = $this->entityManager->getRepository(User::class);
-        $counts = $userRepository->countUsersByType();
+        $counts = $this->userRepository->countUsersByType();
+        // Extract counts from the result
         $totalUsers = $counts[0]['totalUsers'];
         $totalJobSeekers = $counts[0]['totalJobSeekers'];
         $totalRecruiters = $counts[0]['totalRecruiters'];
 
-        return $this->render('home_admin/index.html.twig',[
+        return $this->render('admin/home.html.twig', [
             'totalUsers' => $totalUsers,
             'totalJobSeekers' => $totalJobSeekers,
             'totalRecruiters' => $totalRecruiters,
-        ]);*/
 
-         return $this->render('admin/home.html.twig');
+        ]);
     }
 
     public function configureDashboard(): Dashboard
@@ -42,6 +46,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
+            MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home'),
             MenuItem::linkToDashboard('Home', 'fa fa-home'),
             MenuItem::linkToCrud('Users', 'fas fa-users', User::class),
             MenuItem::linkToCrud('Jobs', 'fas fa-briefcase', Job::class),
