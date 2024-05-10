@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href ="{{ asset('assets/css/login.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="formulaire">
+        <h1>Login</h1>
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <form action="{{ path('login') }}" method="post" >
+
+            <div class="parent_div">
+                <label for="email">Email :</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}">
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+
+            <div class="parent_div">
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="_password" required>
+                <div class="error"></div>
+                <div class="success"></div>
+            </div>
+            <input type="hidden" name="_target_path" value="/home">
+            <button type="submit" name="logIn" id="logIn">Log in</button>
+        </form>
+        <p>Don't have an account? <a href="{{ path('registration') }}">Sign up</a></p>
+        <?php
+    check_login_errors();
+    ?>
+    </div>
+    <img src="{{ asset('assets/images/pict.png') }}" alt="Registration Image" class="registration-image">
+</div>
+</body>
+</html>
