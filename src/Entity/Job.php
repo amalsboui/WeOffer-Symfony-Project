@@ -170,12 +170,12 @@ class Job
         return $this;
     }
 
-    public function getRecruiter(): ?user
+    public function getRecruiter(): ?User
     {
         return $this->recruiter;
     }
 
-    public function setRecruiter(?user $recruiter): static
+    public function setRecruiter(?User $recruiter): static
     {
         $this->recruiter = $recruiter;
 

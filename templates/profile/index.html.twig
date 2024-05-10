@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title%}
 Profile
 {% endblock %}
@@ -24,16 +25,23 @@ Profile
                 <div class="card-block text-center ">
                     
                     <label for="avatar">
-                        
-                            
-                             <i class='fas fa-user-tie fa-7x mt-5'> </i> 
-                            
-                        
+                        {% if user %}
+                        {% if user.image_url %}
+                            <img src="{{asset('includes/uploads/{{ user.image_url }}')}}" style="width: 200px; height: 200px; border-radius: 50%;" class="avatar-image" alt="profilepicture">
+                        {% endif %}
+                        {% else %}
+                        <i class="fas fa-user-tie fa-7x mt-5"></i>
+                        {% endif %}
                     </label><br>
-                    
-                        
-                    <form method="post">
-                        <a  class="btn btn-primary">
+                    {% if user %}
+                        {{ user.name }} {{ user.last_name }}
+                    {% endif %}
+                    <br>
+                    {% if user %}
+                        {{ user.job }}
+                    {% endif %}
+                    <form action = "{{path ('profileupdate')}}" method="post">
+                        <a  href="{{ path('profileupdate') }}" class="btn btn-primary">
                             Edit Profile
                         </a>
                     </form>
@@ -46,24 +54,33 @@ Profile
                 <div class="row">
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Email :</p>
-                        
-                        
-                            
-                    
+                        {% if user %}
+                        {% if user.email %}
+                        {{ user.email }}
+                        {% endif %}
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <p class="font-weight-bold">City :</p>
-                       
+                        {% if user %}
+                            {% if user.city %}
+                                {{ user.city }}
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
-                <?php
-                <h4 class='mt-3'>Projects done before:</h4>
-               <hr class='bg-primary  mt-0 w-25 '>
-                <h4 class='mt-3'> Entreprise :</h4>
-                    <hr class='bg-primary mt-0 w-25'>
-                    
-                
-                    
+                {% if user %}
+                    {% if user.user_type == "job_seeker" %}
+                        <h4 class="mt-3">Projects done before:</h4>
+                        <hr class="bg-primary mt-0 w-25">
+                        {{ user.info_personnelles }}
+                    {% else %}
+                        <h4 class="mt-3">Entreprise :</h4>
+                        <hr class="bg-primary mt-0 w-25">
+                        {{ user.info_personnelles }}
+                    {% endif %}
+                {% endif %}
+
             </div>
         </div>
     </div>
@@ -71,3 +88,4 @@ Profile
 </main>
 
 {% endblock %}
+
