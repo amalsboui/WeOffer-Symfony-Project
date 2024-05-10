@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobApplicationController!{% endblock %}
+
+{% block main %}
+
+    {% for application in applications %}
+        <div class="card m-3 " style="display :flex">
+            <div class="card-body">
+                <h2 class="card-title">{{ application.name }} {{ application.last_name }}</h2>
+                <p class="card-text">{{ application.motivation}}</p>
+                <br>
+                <a href="mailto:'.{{  application.email}}.'" class="card-link">📧 </a>
+                <a href="../uploads/cv_applications/" class="btn btn-info  align-self-end mt-auto w3-theme-d4" >Download resume</a>
+
+                <!-- delete job application if the user is admin -->
+                {% if application.user_type == 'admin'%}
+
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-info  align-self-end mt-auto btn-danger"  title="Delete Application">
+                            Delete Application
+                        </button>
+                    </div>
+
+                 {% endif%}
+
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

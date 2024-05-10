@@ -6,9 +6,32 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
     <list default="true" id="e2b96550-0e73-4c5a-9ca6-7fd00fc14998" name="Changes" comment="register">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JobOffersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JobOffersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/JobFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/JobFixtures.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_05_2024_1_11_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_05_2024_1_11_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
+>>>>>>> fa8943d9f4c7de08b88581ebc05175444d977f40
+>>>>>>> 0e4c3c58d876cef2101c7e0969b6d8cf90421120
+=======
       <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_10_05_2024_11_08.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
     </list>
 =======
     <list default="true" id="e2b96550-0e73-4c5a-9ca6-7fd00fc14998" name="Changes" comment="register" />
@@ -33,6 +56,23 @@
     &quot;assignee&quot;: &quot;amalsboui&quot;
   }
 }</component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/amalsboui/Symfony-Project.git&quot;,
+    &quot;accountId&quot;: &quot;ab2427f3-1d28-4f71-943c-d6d90442c589&quot;
+  }
+}</component>
+=======
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/amalsboui/Symfony-Project.git",
+    "accountId": "3dc662d8-8196-412b-a0e1-e9a7eeca94be"
+  }
+}]]></component>
+>>>>>>> fa8943d9f4c7de08b88581ebc05175444d977f40
+=======
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/amalsboui/Symfony-Project.git&quot;,
@@ -40,6 +80,13 @@
   }
 }</component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+  <component name="PhpDebugGeneral" listening_started="true" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 0e4c3c58d876cef2101c7e0969b6d8cf90421120
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
 =======
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
@@ -138,7 +185,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
@@ -179,6 +225,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/vendor/symfony/sendgrid-mailer" />
       <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -192,17 +239,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+<<<<<<< HEAD
+<<<<<<< HEAD
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;H:/RT2/sem2/web/symfony/Symfony-Project/Symfony-Project&quot;,
+=======
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Symfony-Project&quot;,
+>>>>>>> 0e4c3c58d876cef2101c7e0969b6d8cf90421120
+=======
     &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/PhpstormProjects/Symfony-Project&quot;,
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+<<<<<<< HEAD
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/hp/PhpstormProjects/Symfony-Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> fa8943d9f4c7de08b88581ebc05175444d977f40
+=======
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
   }
 }</component>
   <component name="RunManager">
@@ -230,12 +306,26 @@
       <workItem from="1715165251741" duration="4865000" />
       <workItem from="1715279828907" duration="19367000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+      <workItem from="1715304345799" duration="4000" />
+      <workItem from="1715304488737" duration="2000" />
+      <workItem from="1715304587484" duration="440000" />
+      <workItem from="1715305047307" duration="1000" />
+=======
+      <workItem from="1715301952615" duration="1907000" />
+>>>>>>> fa8943d9f4c7de08b88581ebc05175444d977f40
+=======
       <workItem from="1715301952615" duration="4626000" />
       <workItem from="1715335701234" duration="616000" />
 =======
       <workItem from="1715301952615" duration="1907000" />
+<<<<<<< HEAD
+      <workItem from="1715305500722" duration="8773000" />
+      <workItem from="1715337528942" duration="1438000" />
+=======
       <workItem from="1715333446105" duration="7000" />
 >>>>>>> 03f1b280dac99adc8d8b72fdd00216a2bc6c3a42
+>>>>>>> 883e0b0d1b72a87c5c36439fcc92a3231194a82a
     </task>
     <task id="LOCAL-00001" summary="register">
       <option name="closed" value="true" />
@@ -245,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715299790883</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="register">
+      <option name="closed" value="true" />
+      <created>1715303906861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715303906861</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +362,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="register" />
-    <option name="LAST_COMMIT_MESSAGE" value="register" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

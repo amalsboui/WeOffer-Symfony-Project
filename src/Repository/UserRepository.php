@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -48,13 +49,44 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?User
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   // public function findOneBySomeField($userId): ?User
+    //{
+      //  return $this->createQueryBuilder('u')
+        //    ->andWhere('u.id = :userId')
+          //  ->setParameter('userId', $userId)
+         //   ->getQuery()
+         //   ->getOneOrNullResult()
+       // ;
+   // }
+    public function findOneByIdFromSession($userId): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.id = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+   /* public function countUsersByType():array
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id) as totalUsers');
+        $qb->addSelect('COUNT(CASE WHEN u.user_type = :jobSeekerType THEN 1 ELSE 0 END) as totalJobSeekers');
+        $qb->addSelect('COUNT(CASE WHEN u.user_type = :recruiterType THEN 1 ELSE 0 END) as totalRecruiters');
+        $qb->setParameter('jobSeekerType', 'job_seeker');
+        $qb->setParameter('recruiterType', 'recruiter');
+        return $qb->getQuery()->getScalarResult();
+    }
+    public function countApplications():array
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id) as totalApplications');
+        return $qb->getQuery()->getScalarResult();
+    }
+    public function countJobOffers():array
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id) as totalJobOffers');
+        return $qb->getQuery()->getScalarResult();
+    }*/
+
 }
