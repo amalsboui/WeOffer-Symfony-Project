@@ -12,8 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
+<<<<<<< HEAD
     #[Route('/contact', name: 'contact')]
     public function index(Request $request, MailerInterface $mailer): Response
+=======
+    #[Route('/contact', name: 'app_contact')]
+    public function index(): Response
+>>>>>>> a355778db5405e38531890832f270fd216cb4022
     {
             $name = $request->request->get('name');
             $email = $request->request->get('email');
