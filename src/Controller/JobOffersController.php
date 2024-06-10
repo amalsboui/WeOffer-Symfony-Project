@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -14,8 +15,8 @@ use function PHPUnit\Framework\returnArgument;
 
 class JobOffersController extends AbstractController
 {
-    #[Route('/job/offers', name: 'app_job_offers')]
-    public function index(ManagerRegistry $doctrine ,SessionInterface $session): Response
+    #[Route('/job/offers', name: 'job_offers')]
+    public function index(ManagerRegistry $doctrine ,SessionInterface $session,UserRepository $userRepository): Response
     {
     if(!$session->has('user_id')){
 
@@ -23,10 +24,8 @@ class JobOffersController extends AbstractController
        return  $this->redirecttoRoute('login');
     }
        else{
-           $id=$session->get('user_id');
-            $id=2;
-           $repo = $doctrine->getRepository(User::class,);
-           $result = $repo->findOneBy(['id'=>$id]);
+           $userId=$session->get('user_id');
+           $result = $userRepository->find($userId);
 
            if(!($result->getUserType() =='recruiter' || $result->getUserType() =='admin')){
 
@@ -35,8 +34,8 @@ class JobOffersController extends AbstractController
            }
            else{
 
-        $repo = $doctrine->getRepository(Job::class,);
-        $jobs = $repo->findBy(['recruiter'=>$id] );
+               $repo = $doctrine->getRepository(Job::class,);
+            $jobs = $repo->findBy(['recruiter'=>$userId] );
 
         }
     }

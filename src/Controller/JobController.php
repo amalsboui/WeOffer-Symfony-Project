@@ -11,9 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class JobController extends AbstractController
 {
-    /**
-     * @Route("/jobs/{id}", name="job_details")
-     */
+    #[Route("/job_details/{id}", name:"job_details")]
     public function show(Request $request, EntityManagerInterface $entityManager, int $id): Response
     {
         
@@ -22,12 +20,10 @@ class JobController extends AbstractController
         if (!$job) {
             throw $this->createNotFoundException('Job not found');
         }
-
-  
         $timeDifference = $this->calculateTime($job->getCreatedAt());
 
  
-        return $this->render('job/show.html.twig', [
+        return $this->render('job_details/show.html.twig', [
             'job' => $job,
             'timeDifference' => $timeDifference,
         ]);

@@ -58,35 +58,33 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     //   ->getOneOrNullResult()
     // ;
     // }
-    public function findOneByIdFromSession($userId): ?User
+    public function countJobSeekers(): int
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.id = :userId')
-            ->setParameter('userId', $userId)
-            ->getQuery()
-            ->getOneOrNullResult();
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id)')
+            ->where('u.user_type = :jobSeekerType')
+            ->setParameter('jobSeekerType', 'job_seeker');
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
     }
-    public function countUsersByType():array
+
+    public function countRecruiters(): int
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id)')
+            ->where('u.user_type = :recruiterType')
+            ->setParameter('recruiterType', 'recruiter');
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
+    public function countUsers():int
     {
         $qb = $this->createQueryBuilder('u');
         $qb->select('COUNT(u.id) as totalUsers');
-        $qb->addSelect('COUNT(CASE WHEN u.user_type = :jobSeekerType THEN 1 ELSE 0 END) as totalJobSeekers');
-        $qb->addSelect('COUNT(CASE WHEN u.user_type = :recruiterType THEN 1 ELSE 0 END) as totalRecruiters');
-        $qb->setParameter('jobSeekerType', 'job_seeker');
-        $qb->setParameter('recruiterType', 'recruiter');
-        return $qb->getQuery()->getScalarResult();
+        return (int) $qb->getQuery()->getSingleScalarResult();
     }
-    public function countApplications():array
-    {
-        $qb = $this->createQueryBuilder('u');
-        $qb->select('COUNT(u.id) as totalApplications');
-        return $qb->getQuery()->getScalarResult();
-    }
-    public function countJobOffers():array
-    {
-        $qb = $this->createQueryBuilder('u');
-        $qb->select('COUNT(u.id) as totalJobOffers');
-        return $qb->getQuery()->getScalarResult();
-    }
+
+
+
 
 }

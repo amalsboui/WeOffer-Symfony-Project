@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Job;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @extends ServiceEntityRepository<Job>
@@ -46,4 +47,10 @@ class JobRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function countJobOffers():int
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id) as totalJobOffers');
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 }

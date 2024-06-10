@@ -1,41 +1,39 @@
-{% extends 'base.html.twig' %}
-{% block title %}
-    Add a job
-{% endblock %}
-{% block links%}
-    <link href="{{ asset('assets/css/addajob.css') }}" rel="stylesheet">
-{% endblock %}
-    {% block main %}
-        <div class="container container-fluid">
-            <h1>Post a job offer</h1>
-            <form>
-                {{ form_start(form) }}
-                <div class="form-group">
-                    {{ form_row(form.position, {'attr': {'class': 'form-control'}})}}
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link href="{{ asset('assets/css/addjob.css') }}" rel="stylesheet">
+        <div class="container ">
+            <div class="formulaire">
+                <h1>Post a Job Offer</h1>
+                <form action="{{ path('add_job') }}" method="post">
 
-                <div class="form-group">
-                    {{ form_row(form.employment_type, {'attr': {'class': 'form-control'}}) }}
-                </div>
+                    <label for="position"></label>
+                    {{ form_row(Addajob.position) }}
 
-                <div class="form-group">
-                    {{ form_row(form.entreprise, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_row(form.location, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <button type="submit" class="btn btn-primary" style="align-self: center; position:relative">Submit</button>
-            </form>
-        </div>
+                    <label for="category"></label>
+                    {{ form_row(Addajob.category) }}
+
+                    <label for="employment_type"></label>
+                    {{ form_row(Addajob.employment_type) }}
+
+                    <label for="entreprise"></label>
+                    {{ form_row(Addajob.entreprise) }}
+
+                    <label for="location"></label>
+                    {{ form_row(Addajob.location) }}
+
+                    <label for="description"></label>
+                    {{ form_row(Addajob.description) }}
+                  <!--  <textarea id="description" name="description" rows="4" required></textarea>-->
 
 
-    {% endblock %}
+                    {{ form_rest(Addajob) }}
+                </form>
 
+            </div>
 
-
+            </body>
+</html>

@@ -16,23 +16,22 @@ use Symfony\Component\Routing\Attribute\Route;
 class AddJobController extends AbstractController
 {   private RegistrationController $registrationController;
     private UserRepository $userRepository;
-    #[Route('/add', name: 'app_add_job')]
+    #[Route('/add', name: 'add_job')]
     public function index(Request $request,EntityManagerInterface $entityManager,SessionInterface $session,UserRepository $userRepository,Security $security): Response
-    { 
-        $userId = $session->get('user_id');
-        //$userId=2;
-        $user = $userRepository->find($userId);
+    {
         // /** @var \App\Entity\User $user */
-        //$user=$this->getUser();
-        if(!$user) {
-           return (new Response('<h1>user not found</h1>'));}
-         $time=new \DateTimeImmutable();
+        if ($session->has('user_id')) {
+            $userId = $session->get('user_id');
+            $user = $userRepository->find($userId);
+        }
+        else{
+            return $this->redirectToRoute('login');
+        }
+        $time=new \DateTimeImmutable();
         $job=new Job();
         $form=$this->createForm(AddajobType::class,$job);
         $form->handleRequest($request);
-        
-        
-        //$user=$session->get('user');
+
         if ($form->isSubmitted() && $form->isValid()) {
             $job->setRecruiter($user);
             $job->setCreatedAt($time);
@@ -46,7 +45,8 @@ class AddJobController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('home');
         }
-        return $this->render('add_job/index.html.twig',['job'=>$job,'form'=>$form->createView()]);
+        return $this->render('add_job/index.html.twig',
+                            ['job'=>$job, 'Addajob'=>$form]);
 
     }
 }

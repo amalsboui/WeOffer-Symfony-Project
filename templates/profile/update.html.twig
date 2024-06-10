@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Changes</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/profileform.css') }}">
 </head>
 <body>
 
+<div class="container">
+    <h2>Profile Changes</h2>
+    <form action="{{ path('profileupdate') }}" method="post" enctype="multipart/form-data">
 
+       {#  {% if user_type == "job_seeker" %}
+        <label for='info_personnelles'>Projects done before :</label><br>
+        <input  type='text' name='info_personnelles' placeholder='list ur projects and achievements briefly'style='width: 350px; height: 50px' value="{{ personalinfo }}"><br>
+        {% elseif user_type == "recruiter" %}
+        <label for='info_personnelles'>Company :</label><br>
+        <input  type='text' name='info_personnelles' placeholder='Where do u currently work 'style='width: 350px; height: 50px'value="{{ personalinfo }}""><br>
+        {% endif %}
+       #}
+        {{ form_row(Userform.personal_info) }}
+        <label for="job"></label><br>
+        {{ form_row(Userform.job) }}
 
+        <label for="city"></label><br>
+        {{ form_row(Userform.city) }}
+        <br><br>
 
- <div class="w-4/5 m-auto text-center">
-        <div class="py-12 border-b border-gray-200">
-            <h1 class="text-6xl pt-12 pb-8">
-                Profile Changes
-            </h1>
+        {{ form_row(Userform.image_url) }}
 
-            {{ form_start(Userform) }}
-                {{form_row(Userform.city)}}
-                {{form_row(Userform.job)}}
-                
-            
-           {{form_row(Userform.personal_info)}}
-            
-            {{form_row(Userform.image_url)}}
-            <button 
-                type="submit" 
-                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg w-1/5 mt-10 font-extrabold py-4 px-8 rounded-3xl">
-                Save Changes
-            </button>
-            
-            {{ form_end(Userform) }}
+       {# <label for="image" class="custom-file-upload">
+                {{ form_row(Userform.image_url) }}
+        </label>
+        <br><br><br>#}
 
-        </div>
-    </div>
+        <input type="submit" value="Save Changes">
+        {{ form_rest(Userform) }}
 
-
+    </form>
+</div>
 </body>
 </html>

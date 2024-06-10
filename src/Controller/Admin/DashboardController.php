@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Application;
 use App\Entity\Job;
 use App\Entity\User;
+use App\Repository\ApplicationRepository;
+use App\Repository\JobRepository;
 use App\Repository\UserRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -19,33 +21,28 @@ class DashboardController extends AbstractDashboardController
     private $ApplicationRepository;
     private $JobRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository,JobRepository $JobRepository,ApplicationRepository $ApplicationRepository)
     {
         $this->userRepository = $userRepository;
+        $this->JobRepository = $JobRepository;
+        $this->ApplicationRepository = $ApplicationRepository;
     }
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        $counts = $this->userRepository->countUsersByType();
-        // Extract counts from the result
-        $totalUsers = $counts[0]['totalUsers'];
-        $totalJobSeekers = $counts[0]['totalJobSeekers'];
-        $totalRecruiters = $counts[0]['totalRecruiters'];
+        $totalUsers = $this->userRepository->countUsers();
+        $totalRecruiters = $this->userRepository->countRecruiters();
+        $totalJobSeekers = $this->userRepository->countJobSeekers();
+        $totalJobOffers = $this->JobRepository->countJobOffers();
+        $totalApplications = $this->ApplicationRepository->countApplications();
 
 
-/*
-        $jobOffersCount = $this->JobRepository->countJobOffers();
-        $totalJobOffers = $jobOffersCount[0]['totalJobOffers'];
-
-        $ApplicationsCount = $this->ApplicationRepository->countApplications();
-        $totalApplications = $jobOffersCount[0]['totalApplications'];
-*/
         return $this->render('admin/home.html.twig', [
             'totalUsers' => $totalUsers,
             'totalJobSeekers' => $totalJobSeekers,
             'totalRecruiters' => $totalRecruiters,
-            /*'totalJobOffers' => $totalJobOffers,
-            'totalApplications' => $totalApplications,*/
+            'totalJobOffers' => $totalJobOffers,
+           'totalApplications' => $totalApplications,
 
 
         ]);

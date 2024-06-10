@@ -39,9 +39,13 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             if ($session->has('user_id')) {
-                $session->set('user_id', $user->getId());
+                $userId = $user->getId();
+                $userType= $user->getUserType();
+                $session->set('user_id', $userId);
+                $session->set('user_type', $userType);
             
             }
+
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('home');

@@ -40,4 +40,10 @@ class ApplicationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function countApplications():int
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('COUNT(u.id) as totalApplications');
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 }
